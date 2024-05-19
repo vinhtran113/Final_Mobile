@@ -8,7 +8,7 @@
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toobar"
         app:layout_constraintTop_toTopOf="parent"
-        app:title="Thanh toán"
+        app:title="Thanh toánn"
         app:titleTextColor="@color/white"
         android:background="@color/textColor"
         android:layout_width="match_parent"
