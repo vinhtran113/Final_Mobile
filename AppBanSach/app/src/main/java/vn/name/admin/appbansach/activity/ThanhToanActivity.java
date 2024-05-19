@@ -95,7 +95,6 @@ public class ThanhToanActivity extends AppCompatActivity {
                                     },
                                     throwable -> {
                                         Toast.makeText(getApplicationContext(), throwable.getMessage(), Toast.LENGTH_SHORT).show();
-                                        Toast.makeText(getApplicationContext(), "Bạn chưa nhập Username", Toast.LENGTH_SHORT).show();
                                     }
                             ));
                 }
