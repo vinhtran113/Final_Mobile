@@ -31,7 +31,7 @@ while ($row = mysqli_fetch_assoc($data)){
     $email=($result[0]["email"]);
     $pass=($result[0]["pass"]);
 
-    $link="<a href='http://172.19.201.8/android/reset_pass.php?key=".$email."&reset=".$pass."'>Click To Reset password</a>";
+    $link="<a href='http://172.172.31.80/android/reset_pass.php?key=".$email."&reset=".$pass."'>Click To Reset password</a>";
     
     $mail = new PHPMailer();
     $mail->CharSet =  "utf-8";
@@ -39,15 +39,15 @@ while ($row = mysqli_fetch_assoc($data)){
     // enable SMTP authentication
     $mail->SMTPAuth = true;                  
     // GMAIL username
-    $mail->Username = "lytienthanhs2@gmail.com";
+    $mail->Username = "bananacosmeticweb@gmail.com";
     // GMAIL password
-    $mail->Password = "qzzd ratg neid nhqm";
+    $mail->Password = "mnec klrh vmte pisk";
     $mail->SMTPSecure = "ssl";  
     // sets GMAIL as the SMTP server
     $mail->Host = "smtp.gmail.com";
     // set the SMTP port for the GMAIL server
     $mail->Port = "465";
-    $mail->From= "lytienthanhs2@gmail.com";
+    $mail->From= "bananacosmeticweb@gmail.com";
     $mail->FromName='App ban sach';
     $mail->AddAddress($email, 'reciever_name');
     $mail->Subject  =  'Reset Password';
