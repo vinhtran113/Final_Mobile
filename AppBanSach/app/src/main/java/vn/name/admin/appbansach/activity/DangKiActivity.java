@@ -63,6 +63,7 @@ public class DangKiActivity extends AppCompatActivity {
 
         }else if (TextUtils.isEmpty(str_user)) {
             Toast.makeText(getApplicationContext(), "Bạn chưa nhập Username", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Bạn chưa nhập Username", Toast.LENGTH_SHORT).show();
 
         }else {
             if (str_pass.equals(str_repass)){
