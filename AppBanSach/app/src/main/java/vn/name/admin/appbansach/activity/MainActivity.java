@@ -24,6 +24,9 @@ import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 import com.bumptech.glide.Glide;
+import com.denzcoskun.imageslider.ImageSlider;
+import com.denzcoskun.imageslider.constants.ScaleTypes;
+import com.denzcoskun.imageslider.models.SlideModel;
 import com.google.android.material.navigation.NavigationView;
 import com.nex3z.notificationbadge.NotificationBadge;
 
@@ -34,6 +37,7 @@ import io.paperdb.Paper;
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
+import vn.name.admin.appbansach.Interface.ItemClickListener;
 import vn.name.admin.appbansach.R;
 import vn.name.admin.appbansach.adapter.LoaiSpAdapter;
 import vn.name.admin.appbansach.adapter.SanPhamMoiAdapter;
@@ -47,7 +51,7 @@ import vn.name.admin.appbansach.utils.Utils;
 
 public class MainActivity extends AppCompatActivity {
     Toolbar toolbar;
-    ViewFlipper viewFlipper;
+    ImageSlider imageSlider;
     RecyclerView recyclerViewManHinhChinh;
     NavigationView navigationView;
     ListView listViewManHinhChinh;
@@ -160,23 +164,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void ActionViewFlipper() {
-        List<String> mangquangcao = new ArrayList<>();
-        mangquangcao.add("https://muagitot.com/upload_images/images/2022/05/19/review-sach-doi-ngan-dung-ngu-da.jpg");
-        mangquangcao.add("https://muagitot.com/upload_images/images/2022/05/19/review-gioi-han-cua-ban-chi-la-x.jpg");
-        mangquangcao.add("https://muagitot.com/upload_images/images/2022/05/19/266010964_1339805756495908_23252.jpg");
-        for (int i = 0; i<mangquangcao.size(); i++){
-            ImageView imageView = new ImageView(getApplicationContext());
-            Glide.with(getApplicationContext()).load(mangquangcao.get(i)).into(imageView);
-            imageView.setScaleType(ImageView.ScaleType.FIT_XY);
-            viewFlipper.addView(imageView);
-        }
-        viewFlipper.setFlipInterval(3000);
-        viewFlipper.setAutoStart(true);
-        Animation slide_in = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.slide_in_right);
-        Animation slide_out = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.slide_out_right);
-        viewFlipper.setInAnimation(slide_in);
-        viewFlipper.setOutAnimation(slide_out);
+        ArrayList<SlideModel> imageList = new ArrayList<>();
+        imageList.add(new SlideModel(R.drawable.banner1, ScaleTypes.FIT));
+        imageList.add(new SlideModel(R.drawable.banner2, ScaleTypes.FIT));
+        imageList.add(new SlideModel(R.drawable.banner3, ScaleTypes.FIT));
+
+        imageSlider.setImageList(imageList);
+        imageSlider.setImageList(imageList, ScaleTypes.FIT);
     }
+
 
     private void ActionBar(){
         setSupportActionBar(toolbar);
@@ -193,7 +189,7 @@ public class MainActivity extends AppCompatActivity {
     private void Anhxa(){
         imgsearch = findViewById(R.id.imgsearch);
         toolbar = findViewById(R.id.toobarmanhinhchinh);
-        viewFlipper = findViewById(R.id.viewlipper);
+        imageSlider = findViewById(R.id.image_slider);
         recyclerViewManHinhChinh = findViewById(R.id.recycleview);
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(this,2);
         recyclerViewManHinhChinh.setLayoutManager(layoutManager);
