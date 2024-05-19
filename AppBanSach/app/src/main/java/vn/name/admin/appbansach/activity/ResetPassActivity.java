@@ -35,6 +35,7 @@ public class ResetPassActivity extends AppCompatActivity {
     }
 
     private void initControl() {
+        //
         btnreset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
