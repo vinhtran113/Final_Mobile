@@ -8,7 +8,7 @@
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toobar"
-        app:title="Tìm kiếmm"
+        app:title="Tìm kiếm"
         app:titleTextColor="@color/white"
         android:background="@color/textColor"
         app:layout_constraintTop_toTopOf="parent"
